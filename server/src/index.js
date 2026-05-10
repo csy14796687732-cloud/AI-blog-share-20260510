@@ -4,7 +4,15 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import sequelize from './config/db.js';
 import config from './config/index.js';
-import { User, Post, PostLike, Comment, Subscriber, SiteConfig } from './models/index.js';
+import { User, Post, Project, Comment, Subscriber, SiteConfig } from './models/index.js';
+
+import authRoutes from './routes/auth.js';
+import postRoutes from './routes/posts.js';
+import projectRoutes from './routes/projects.js';
+import commentRoutes from './routes/comments.js';
+import subscriberRoutes from './routes/subscribers.js';
+import uploadRoutes from './routes/upload.js';
+import siteRoutes from './routes/site.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const app = express();
