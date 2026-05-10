@@ -43,6 +43,11 @@ app.get('/api/health', (req, res) => {
   res.json({ status: 'ok', timestamp: new Date().toISOString() });
 });
 
+// SPA fallback - serve index.html for all non-API routes
+app.get('*', (req, res) => {
+  res.sendFile(path.join(clientDist, 'index.html'));
+});
+
 // Error handler
 app.use((err, req, res, next) => {
   console.error('Unhandled error:', err);
